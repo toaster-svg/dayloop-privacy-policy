@@ -21,7 +21,7 @@ header{border-bottom:1px solid #e8edf4;padding-bottom:24px;margin-bottom:30px}.e
 <li><strong>앱 사용 정보:</strong> 설치된 앱의 이름 및 패키지 식별자, 화면에 표시된 시간, 날짜별 사용 시간과 앱 전환 기록. Android 사용 정보 접근 권한을 통해 읽습니다.</li>
 <li><strong>활동 인식 정보:</strong> Android 활동 인식 기능이 감지한 정지, 걷기, 달리기, 자전거 또는 차량 이동 상태와 그 시간 구간. 이동 중 앱 사용을 계산하는 데 사용합니다.</li>
 <li><strong>사용자 설정:</strong> 목표, 앱별 제한 및 차단 설정, 기능 활성화 상태, 동의 상태 등 앱의 기본 설정.</li>
-<li><strong>접근성 기능 정보:</strong> 사용자가 자동 차단 기능을 직접 켠 경우, 선택한 앱의 현재 화면 및 앱 사용 상태를 기기에서 확인하여 제한 기능을 제공합니다.</li>
+<li><strong>접근성 기능 정보:</strong> 사용자가 자동 차단 기능을 직접 켠 경우, 선택한 앱의 현재 화면 및 앱 사용 상태를 기기에서 확인하여 제한 기능을 제공합니다. 화면 캡처나 화면 원문은 저장하지 않습니다.</li>
 </ul>
 <p>현재 코드에서는 GPS 좌표나 장소 정보를 수집하지 않습니다. 계정 생성이나 Dayloop 서버로의 사용 기록 업로드 기능도 구현되어 있지 않습니다.</p>
 
@@ -36,8 +36,8 @@ header{border-bottom:1px solid #e8edf4;padding-bottom:24px;margin-bottom:30px}.e
 </ul>
 
 <h2>4. 광고 및 제3자 서비스</h2>
+<p>이동 상태 감지는 Google Play services의 Activity Recognition 기능을 사용합니다. Dayloop은 기능에 필요한 활동 종류와 전환 시각을 전달받아 기기에서 사용 분석에 이용합니다. GPS 좌표는 사용하지 않습니다.</p>
 <p>앱에는 Google Mobile Ads SDK와 Google User Messaging Platform(UMP)이 포함되어 있습니다. 광고가 활성화되면 Google이 광고 제공, 동의 관리, 사기 방지, 성능 측정을 위해 기기 식별자, 광고 상호작용 및 진단 정보 등 데이터를 처리할 수 있습니다. 처리되는 항목과 선택 가능한 광고 설정은 지역, 동의 상태 및 Google 서비스 구성에 따라 달라질 수 있습니다. Google의 데이터 처리에 대해서는 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>과 앱 내 광고 개인정보 설정을 확인해 주세요.</p>
-<p>현재 확인한 프로젝트에는 Google 테스트 광고 ID가 설정되어 있습니다. 실제 출시 전에 운영용 광고 설정을 변경하면 이 방침과 Google Play 데이터 보안 항목도 함께 검토·갱신해야 합니다.</p>
 
 <h2>5. 권한과 선택</h2>
 <p>앱 사용 정보 접근 권한, 활동 인식 권한 및 접근성 서비스는 각 기능을 사용하기 위해 필요하며 Android 설정에서 허용하거나 해제할 수 있습니다. 권한을 해제하면 관련 통계·자동 감지·차단 기능이 제한될 수 있습니다. 광고 동의가 적용되는 지역에서는 UMP가 제공하는 동의 및 개인정보 옵션을 이용할 수 있습니다.</p>
@@ -45,7 +45,7 @@ header{border-bottom:1px solid #e8edf4;padding-bottom:24px;margin-bottom:30px}.e
 <h2>6. 정보주체의 권리와 행사 방법</h2><p>사용자는 개인정보 열람, 정정, 삭제 및 처리정지를 요청할 수 있습니다. 요청은 아래 이메일로 보내 주세요. Dayloop은 요청자의 본인 여부와 요청 범위를 확인한 뒤 관련 법령에 따라 처리합니다. 기기 안에만 저장된 기록은 앱의 기록 삭제 기능 또는 Android 설정의 앱 데이터 삭제로 직접 삭제할 수 있습니다.</p>
 <h2>7. 안전성 확보</h2><p>Dayloop 운영자는 서버에 사용 기록을 보관하지 않습니다. 기기에 저장되는 설정 및 이동 기록은 Android 앱 전용 저장 영역에 보관되며, 운영체제가 제공하는 앱 간 분리 기능을 따릅니다. 사용자는 기기 잠금과 운영체제를 최신 상태로 유지해 기기를 보호할 수 있습니다. 광고 관련 데이터는 Google이 Google 서비스의 보안 및 개인정보 보호 정책에 따라 처리합니다.</p>
 <h2>8. 아동의 개인정보</h2>
-<p>Dayloop은 아동을 대상으로 설계된 서비스가 아닙니다. 아동의 개인정보를 의도적으로 수집하도록 설계된 기능은 없습니다. 대상 연령과 Google Play의 아동 관련 설정에 따라 이 항목 및 광고 구성을 출시 전에 확인해야 합니다.</p>
+<p>Dayloop은 아동을 대상으로 설계된 서비스가 아니며, 아동의 개인정보를 의도적으로 처리하도록 설계된 기능은 없습니다.</p>
 
 <h2>9. 방침 변경</h2>
 <p>앱 기능, 데이터 처리 또는 관련 법령이 변경되면 이 방침을 업데이트하고 시행일을 수정합니다. 중요한 변경은 앱 내 안내 또는 앱 배포 페이지를 통해 알릴 수 있습니다.</p>
@@ -61,7 +61,7 @@ header{border-bottom:1px solid #e8edf4;padding-bottom:24px;margin-bottom:30px}.e
 <li><strong>App usage information:</strong> app names and package identifiers, foreground time, daily usage, and app transition events, accessed through Android Usage Access.</li>
 <li><strong>Activity recognition information:</strong> periods identified by Android as still, walking, running, cycling, or in a vehicle, used to calculate app use during movement.</li>
 <li><strong>Preferences:</strong> goals, app limits and blocking settings, feature status, and consent status.</li>
-<li><strong>Accessibility feature information:</strong> if you enable automatic blocking, the service checks the current screen and app state on your device to apply your selected limits.</li>
+<li><strong>Accessibility feature information:</strong> if you enable automatic blocking, the service checks the current screen and app state on your device to apply your selected limits. Screenshots and the original screen text are not stored.</li>
 </ul>
 <p>The current code does not collect GPS coordinates or place information. It does not implement account creation or uploading usage history to a Dayloop server.</p>
 <h2>2. Purposes and where processing occurs</h2>
@@ -73,14 +73,14 @@ header{border-bottom:1px solid #e8edf4;padding-bottom:24px;margin-bottom:30px}.e
 <li>Android manages system usage history. Dayloop queries it to show statistics and does not copy it to a Dayloop server.</li>
 </ul>
 <h2>4. Advertising and third-party services</h2>
+<p>Movement detection uses the Activity Recognition feature provided by Google Play services. Dayloop receives the activity type and transition time needed for the feature and uses them for on-device analysis. GPS coordinates are not used.</p>
 <p>The app includes Google Mobile Ads SDK and Google User Messaging Platform (UMP). When ads are enabled, Google may process data such as device identifiers, ad interactions, and diagnostics for ad delivery, consent management, fraud prevention, and performance measurement. Data and choices may vary by region, consent status, and Google service configuration. See <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a> and the in-app advertising privacy options for information about Google’s processing.</p>
-<p>The project inspected currently uses Google test ad IDs. Before release, production ad configuration and the Google Play Data safety declarations should be reviewed and this policy updated as needed.</p>
 <h2>5. Permissions and choices</h2>
 <p>Usage Access, Activity Recognition, and Accessibility service access are used for their respective features and can be managed in Android settings. Revoking a permission may limit related statistics, automatic detection, or blocking. Where applicable, use the consent and privacy options presented by UMP.</p>
 <h2>6. Your rights and how to exercise them</h2><p>You may request access to, correction of, deletion of, or restriction of processing of your personal information by emailing us below. We will verify the requester and handle the request as required by applicable law. Information stored only on your device can be deleted using the in-app history deletion feature or by clearing the app data in Android settings.</p>
 <h2>7. Data security</h2><p>Dayloop does not store usage history on its own server. Preferences and movement history stored on your device are kept in the app-specific storage area and benefit from Android app isolation. You can help protect your device by using a screen lock and keeping its operating system up to date. Google handles advertising-related data under its own security and privacy practices.</p>
 <h2>8. Children</h2>
-<p>Dayloop is not designed for children, and it has no feature designed to intentionally collect children’s personal information. The target age group and child-related Google Play settings should be confirmed before release.</p>
+<p>Dayloop is not designed for children and has no feature designed to intentionally process children’s personal information.</p>
 <h2>9. Changes</h2>
 <p>This policy may be updated when app features, data practices, or applicable requirements change. The effective date will be revised, and significant changes may be announced in the app or on its distribution page.</p>
 <h2>10. Privacy contact</h2>
